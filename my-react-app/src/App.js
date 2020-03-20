@@ -14,14 +14,14 @@ class App extends Component {
   }
 
   // adding event handler:
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
     // console.log('Button was clicked');
     // DO NOT MANIPULATE STATE DIRECTLY: this.state.persons[0].name = "Maximilian";
 
     // setState will update current state object with this new object:
     this.setState({
       persons: [
-        { name: 'Maximiliam', age: 28 },
+        { name: newName, age: 28 },
         { name: 'Steph', age: 26 },
         { name: 'Ed', age: 30 }
       ]
@@ -34,11 +34,18 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>Have fun creating apps with React!</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name}
+        <button onClick={() => this.switchNameHandler('Maximus')}>Switch Name </button>
+        <Person
+          name={this.state.persons[0].name}
           age={this.state.persons[0].age} />
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Racing</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+        <Person
+          name={this.state.persons[1].name}
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this, "No just Max")}>
+          My Hobbies: Racing</Person>
+        <Person
+          name={this.state.persons[2].name}
+          age={this.state.persons[2].age} />
       </div>
     );
 
