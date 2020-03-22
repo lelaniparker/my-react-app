@@ -1,13 +1,16 @@
 import React from 'react';
+
 import './App.css';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import Toolbar from './components/Toolbar/Toolbar';
+//import Footer from './Footer/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Footer />
+      <Toolbar />
+      <main className="Main">
+        <p>This is a paragraph content</p>
+      </main>
     </div>
   );
 }
